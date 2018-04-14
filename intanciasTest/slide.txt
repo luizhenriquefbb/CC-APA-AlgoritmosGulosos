@@ -1,0 +1,15 @@
+9 vertices
+
+pesos:
+    a   b   c   d   e   f   g   h   i 
+a   -   4   m   m   m   m   m   8   m
+b   -   -   8   m   m   m   m   11  m
+c   -   -   -   7   m   4   m   m   2
+d   -   -   -   -   9   14  m   m   m
+e   -   -   -   -   -   10  m   m   m
+f   -   -   -   -   -   -   2   m   m
+g   -   -   -   -   -   -   -   1   6
+h   -   -   -   -   -   -   -   -   7
+
+
+m = max

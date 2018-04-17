@@ -1,7 +1,5 @@
 package main;
 
-import java.util.ArrayList;
-import java.util.LinkedList;
 import java.util.List;
 import static util.MetodosComuns.construirRepresentacaoMatriz;
 import static util.MetodosComuns.construrRepresentacaoAdjacencias;
@@ -23,7 +21,7 @@ public class Main {
         List<Vertice> adjacencia = construrRepresentacaoAdjacencias(matriz);
         
         // MSTPrim
-        Prim prim = new Prim(adjacencia);
+        Prim prim = new Prim(adjacencia, matriz);
         
         // MSTKruskal
         

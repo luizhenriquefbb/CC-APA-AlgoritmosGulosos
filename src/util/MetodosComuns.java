@@ -11,7 +11,6 @@ import main.Vertice;
 public class MetodosComuns {
 
     public static List<Vertice> construrRepresentacaoAdjacencias(int[][] representacaoMatriz) {
-        //TODO:
         // nos exemplos dados, todos os nos estao ligados com todos os outros, logo a matriz e 
         // a lista de adjacencias vao ser iguais, mas caso apareca algum exemplo onde isso nao acontece,
         //esse metodo ja estara pronto
@@ -33,19 +32,6 @@ public class MetodosComuns {
 
         return vertices;
 
-//        //a lista de ajacecias eh uma lista de vertices. Cada vertice tem uma representacao ára outro vertice
-//        ArrayList<Vertice> adjacencias = new ArrayList<>();
-//
-//        for (int i = 0; i < representacaoMatriz.length; i++) { // linha
-//            adjacencias.add(new Vertice()); // crio um vertice
-//            for (int j = 0; j < representacaoMatriz[i].length; j++) { // coluna
-//                if (representacaoMatriz[i][j] != 0 && representacaoMatriz[i][j] != Integer.MAX_VALUE) {
-//                    adjacencias.get(i).add(new Vertice(representacaoMatriz[i][j])); // adiociono em adjacencias
-//                }
-//            }
-//        }
-//
-//        return adjacencias;
     }
 
     /**
@@ -82,6 +68,43 @@ public class MetodosComuns {
         }
 
         return matriz;
+    }
+    
+    public static ArrayList<Vertice> buildMinHeap(Vertice[] vet) {
+
+        for (int i = (vet.length / 2) - 1; i >= 0; i--) {
+            minHeapfy(vet, vet.length, i);
+        }
+
+        ArrayList<Vertice> ret = new ArrayList<Vertice>();
+
+        for (int i = 0; i < vet.length; i++) {
+            ret.add(vet[i]);
+        }
+
+        return ret;
+    }
+
+    public static Vertice[] minHeapfy(Vertice[] vet, int tam, int index) {
+        int menor = index, left = 2 * index, right = 2 * index + 1;
+
+        if ((left <= tam - 1) && (vet[left].valor < vet[menor].valor)) {
+            menor = left;
+        }
+
+        if ((right <= tam - 1) && (vet[right].valor < vet[menor].valor)) {
+            menor = right;
+        }
+
+        if (menor != index) {
+            Vertice aux = vet[index];
+            vet[index] = vet[menor];
+            vet[menor] = aux;
+
+            return minHeapfy(vet, tam, menor);
+        }
+
+        return vet;
     }
 
 }

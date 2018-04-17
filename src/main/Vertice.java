@@ -10,10 +10,10 @@ public class Vertice {
 
     static int last_id = 0;
 
-    int id;
-    int valor;
-    Vertice pai;
-    ArrayList<Vertice> adj;
+    public int id;
+    public int valor;
+    public Vertice pai;
+    public ArrayList<Vertice> adj;
 
     public Vertice(int id, int valor, Vertice pai) {
         this.id = id;

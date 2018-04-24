@@ -6,7 +6,9 @@ import static util.MetodosComuns.buildMinHeap;
 
 /**
  * font: https://pt.wikipedia.org/wiki/Algoritmo_de_Prim
- *
+ * De uma unica arvore cria a MST. O Kruskal gera uma floresta
+ * 
+ * font2: https://www.geeksforgeeks.org/greedy-algorithms-set-5-prims-minimum-spanning-tree-mst-2/
  * @author lhfba
  */
 public class Prim {
@@ -37,6 +39,22 @@ public class Prim {
         for (Vertice v : this.vertices) {
             v.valor = Integer.MAX_VALUE;
         }
+    }
+    
+    /**
+     * Verifica se uma lista de vertices contem um vertice especifico
+     * @param vertices
+     * @param vertice
+     * @return
+     * @deprecated nao funciona ainda
+     */
+    private boolean contains(Vertice[] vertices, Vertice vertice){
+        for (Vertice v : vertices){
+            if (v != null && v.id == vertice.id){
+                return true;
+            }
+        }
+        return false;
     }
 
     /**
@@ -73,6 +91,9 @@ public class Prim {
                 // e se o peso da aresta eh menor que o valor atual do vertice
                 // if ((minHeap.contains(v.adj.get(i))) && (formatoMatriz[v.id][v.adj.get(i).id] < (v.adj.get(i).valor))) {
                 if ((formatoMatriz[v.id][v.adj.get(i).id] < (v.adj.get(i).valor))) {
+//                if (contains(resultado, v.adj.get(i))&&
+//                        (formatoMatriz[v.id][v.adj.get(i).id] < (v.adj.get(i).valor))) {
+
                     v.adj.get(i).pai = v; //Atribui o vertice retirado como o novo pai
                     v.adj.get(i).valor = formatoMatriz[v.id][v.adj.get(i).id]; //Modifica o valor do vertice pelo peso da aresta correspondente
                 }
